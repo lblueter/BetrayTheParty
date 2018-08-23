@@ -38,5 +38,18 @@ var mage = {
 var add = function (one, two) {
     return one + two
 }
+var characterSelected = false;
 
-$("")
+$(".char").on("click", function () { 
+    if (characterSelected = false) {
+        characterSelected = true;
+
+    }
+})
+
+$("#atkBtn").on("click", function () {
+    
+})
+$("#resetBtn").on("click", function () {
+    
+})

@@ -1,6 +1,18 @@
 body {
-    background-color: red;
+    /* The image used */
+    background-image: url("../images/background.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: blue;
 }
-div {
-    background-color: blue;
+.characterborder {
+    background-color: white;
+    border-style: solid;
+    border-color: black;
 }
