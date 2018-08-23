@@ -39,12 +39,25 @@ var add = function (one, two) {
     return one + two
 }
 var characterSelected = false;
-
+var enemySelected = false;
+console.log(characterSelected)
 $(".char").on("click", function () { 
-    if (characterSelected = false) {
+    console.log("click works")
+    if (characterSelected === false) {
         characterSelected = true;
-
+        console.log(characterSelected)
+        $(this).clone().appendTo("#charSelect")
+        $(this).hide();
+        $(".instructions").text("Choose your Opponent!")
     }
+    else if (enemySelected === false) {
+        enemySelected = true;
+        console.log(enemySelected)
+        $(this).clone().appendTo("#enemy")
+        $(this).hide();
+        $(".instructions").text("Betray the Party!")
+    }
+
 })
 
 $("#atkBtn").on("click", function () {
