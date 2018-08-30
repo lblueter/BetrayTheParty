@@ -47,8 +47,6 @@ var atkDamage = 0
 var defendHp = 0
 var defendDmg = 0
 var currentDamage = 0;
-var characterSelected = false;
-var enemySelected = false;
 var selectedChar = ""
 var selectedEnemy = ""
 
@@ -59,8 +57,6 @@ var reset = function () {
     defendHp = 0
     defendDmg = 0
     currentDamage = 0;
-    characterSelected = false;
-    enemySelected = false;
     selectedChar = ""
     selectedEnemy = ""
     $("#charSelect").empty()
@@ -75,12 +71,9 @@ var reset = function () {
     $(".cleric-hp").text(cleric.health)
 }
 
-console.log(characterSelected)
 $(".char").on("click", function () {
     console.log("click works")
-    if (characterSelected === false) {
-        characterSelected = true;
-        console.log(characterSelected)
+    if (!selectedChar) {
         $(this).clone().appendTo("#charSelect")
         $(this).hide();
         $(".instructions").text("Choose your Opponent!")
@@ -103,9 +96,7 @@ $(".char").on("click", function () {
             atkHp = cleric.health
         }
     }
-    else if (enemySelected === false) {
-        enemySelected = true;
-        console.log(enemySelected)
+    else if (!selectedEnemy) {
         $(this).clone().appendTo("#enemy")
         $(this).hide();
         $(".instructions").text("Betray the Party!")
@@ -133,7 +124,7 @@ $(".char").on("click", function () {
 
 $("#atkBtn").on("click", function () {
     console.log("atk work?")
-    if (characterSelected === true && enemySelected === true) {
+    if (selectedChar && selectedEnemy) {
         currentDamage += atkDamage;
 
         defendHp = minus(defendHp, currentDamage)
@@ -141,7 +132,7 @@ $("#atkBtn").on("click", function () {
         if (defendHp <= 0) {
             $("#youAtk").text("You have slain the " + selectedEnemy + ". Select your next target.")
             $("#enemyAtk").text("")
-            enemySelected = false;
+            selectedEnemy = "";
             $("#enemy").empty()
             partyRemaining--;
             if (atkHp <= 0) {
@@ -151,9 +142,8 @@ $("#atkBtn").on("click", function () {
         else if (atkHp <= 0) {
             $("#youAtk").text("You Died. Try again.")
             $("#enemyAtk").text("")
-            characterSelected = false;
+            selectedChar = "";
             $("#charSelect").empty()
-            console.log(characterSelected)
         }
         else {
             $("#youAtk").text("You hit the " + selectedEnemy + " for " + currentDamage)
