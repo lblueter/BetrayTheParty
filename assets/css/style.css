@@ -9,10 +9,15 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: #4aaaa5;
+    color: blue;
+}
+.container {
+    background-color: rgba( 255, 255, 255, 0.5);
+    margin-top: 20px;
+    padding: 20px;
 }
 .characterborder {
-    background-color: white;
+    background-color: rgba( 255, 255, 255, 0.5);
     border-style: solid;
     border-color: black;
 }
