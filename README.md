@@ -19,3 +19,5 @@ How to play:
 
 5. You can click the reset button to play again!
 
+Link to site https://lblueter.github.io/Role-play-fighting-game/
+
