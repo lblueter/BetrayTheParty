@@ -1,4 +1,4 @@
-# unit-4-game
+# RPG-game
 jquery javascript game
 
 Welcome to Betray the Party!
